@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Classroom</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+
+<header id="app-header">
+
+  <div class="header-logo">
+    <div class="logo-icon">✦</div>
+    <div class="logo-text">THE CLASSROOM</div>
+  </div>
+
+  <div class="header-right">
+
+    <div class="fb-badge connecting" id="fb-badge">
+      🔥 Ansluter...
+    </div>
+
+    <div class="api-status">
+      <div class="status-dot"></div>
+      <span>AI Online</span>
+    </div>
+
+  </div>
+
+</header>
+
+<main id="classroom-wrap">
+
+  <div class="room-title">
+
+    <div class="chalkboard">
+
+      <div class="chalkboard-text">
+        VÄLJ DIN EXPERT
+      </div>
+
+      <div class="chalkboard-sub">
+        KLICKA PÅ EN ELEV
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="classroom">
+
+    <div class="desks-grid" id="desks-grid"></div>
+
+  </div>
+
+</main>
+
+<div id="chat-overlay" onclick="closeChat()"></div>
+
+<aside id="chat-panel">
+
+  <div class="chat-header">
+
+    <div class="chat-avatar" id="chat-avatar">?</div>
+
+    <div class="chat-header-info">
+
+      <div class="chat-header-name" id="chat-name"></div>
+
+      <div class="chat-header-subject" id="chat-subject"></div>
+
+    </div>
+
+    <button class="close-btn" onclick="closeChat()">
+      ✕
+    </button>
+
+  </div>
+
+  <div class="chat-messages" id="chat-messages"></div>
+
+  <div class="chat-input-area">
+
+    <textarea
+      id="chat-input"
+      placeholder="Skriv här..."
+      onkeydown="handleInputKey(event)"
+    ></textarea>
+
+    <button onclick="sendMessage()" id="btn-send">
+      ➤
+    </button>
+
+  </div>
+
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script type="module" src="firebase.js"></script>
+
+<script src="students.js"></script>
+<script src="utils.js"></script>
+<script src="ui.js"></script>
+<script src="chat.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
