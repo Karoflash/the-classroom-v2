@@ -1,0 +1,259 @@
+:root{
+    --bg:#050510;
+    --panel:#101026;
+    --surface:#171738;
+    --primary:#4d9fff;
+    --text:#fff;
+    --muted:#9ca3af;
+  }
+  
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+  
+  body{
+    background:var(--bg);
+    color:white;
+    font-family:'Rajdhani',sans-serif;
+    overflow-x:hidden;
+  }
+  
+  .bg-grid{
+    position:fixed;
+    inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+    background-size:50px 50px;
+  }
+  
+  #app-header{
+    height:70px;
+    padding:0 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    background:rgba(0,0,0,.5);
+    backdrop-filter:blur(10px);
+  }
+  
+  .logo-text{
+    font-family:'Cinzel',serif;
+    font-size:1.3rem;
+  }
+  
+  .header-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+  
+  .fb-badge{
+    padding:6px 12px;
+    border-radius:10px;
+    background:#1f2937;
+  }
+  
+  .api-status{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  
+  .status-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#22c55e;
+  }
+  
+  .room-title{
+    text-align:center;
+    padding:50px 20px;
+  }
+  
+  .chalkboard{
+    display:inline-block;
+    padding:25px 60px;
+    border-radius:20px;
+    background:#1f2937;
+  }
+  
+  .chalkboard-text{
+    font-size:2rem;
+    font-family:'Cinzel',serif;
+  }
+  
+  .chalkboard-sub{
+    margin-top:10px;
+    color:var(--muted);
+  }
+  
+  .classroom{
+    padding:30px;
+  }
+  
+  .desks-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+  }
+  
+  .desk-card{
+    background:var(--panel);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:20px;
+    cursor:pointer;
+    transition:.3s;
+  }
+  
+  .desk-card:hover{
+    transform:translateY(-6px);
+    border-color:var(--primary);
+  }
+  
+  .student-avatar{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:var(--surface);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2rem;
+    margin:auto;
+  }
+  
+  .student-name{
+    text-align:center;
+    margin-top:15px;
+    font-size:1.2rem;
+    font-weight:bold;
+  }
+  
+  .student-subject{
+    text-align:center;
+    color:var(--muted);
+    margin-top:6px;
+  }
+  
+  #chat-panel{
+    position:fixed;
+    top:0;
+    right:-450px;
+    width:420px;
+    height:100vh;
+    background:#090914;
+    transition:.4s;
+    display:flex;
+    flex-direction:column;
+    z-index:1000;
+  }
+  
+  #chat-panel.open{
+    right:0;
+  }
+  
+  .chat-header{
+    padding:20px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    display:flex;
+    align-items:center;
+    gap:15px;
+  }
+  
+  .chat-avatar{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:var(--surface);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.5rem;
+  }
+  
+  .close-btn{
+    margin-left:auto;
+    background:none;
+    border:none;
+    color:white;
+    font-size:1.2rem;
+    cursor:pointer;
+  }
+  
+  .chat-messages{
+    flex:1;
+    padding:20px;
+    overflow-y:auto;
+  }
+  
+  .bubble{
+    margin-bottom:15px;
+  }
+  
+  .bubble-text{
+    padding:12px 16px;
+    border-radius:15px;
+    width:fit-content;
+    max-width:80%;
+  }
+  
+  .user .bubble-text{
+    background:var(--primary);
+    margin-left:auto;
+  }
+  
+  .ai .bubble-text{
+    background:var(--surface);
+  }
+  
+  .chat-input-area{
+    padding:20px;
+    display:flex;
+    gap:10px;
+  }
+  
+  #chat-input{
+    flex:1;
+    resize:none;
+    border:none;
+    border-radius:12px;
+    padding:12px;
+    background:var(--surface);
+    color:white;
+  }
+  
+  #btn-send{
+    width:50px;
+    border:none;
+    border-radius:12px;
+    background:var(--primary);
+    color:white;
+    cursor:pointer;
+  }
+  
+  #chat-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    display:none;
+  }
+  
+  #chat-overlay.show{
+    display:block;
+  }
+  
+  .toast{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#1f2937;
+    padding:10px 20px;
+    border-radius:10px;
+  }
